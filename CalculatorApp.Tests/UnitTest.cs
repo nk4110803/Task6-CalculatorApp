@@ -32,6 +32,20 @@ namespace test
             var result = calculator.Division("50 / 10");
             Assert.Equal(5, result);
         }
+        [Fact]
+        public void Add_IgnoreWhitespace_ReturnsCorrect()
+        {
+            var calculator = new Calculator();
+            var result = calculator.Add("  7   +   3  ");
+            Assert.Equal(10, result);
+        }
+        [Fact]
+        public void DivisionByZero_ThrowsException()
+        {
+            var calc = new Calculator();
+            Assert.Throws<DivideByZeroException>(() => calc.Division("8/0"));
+        }
+
 
     }
 }

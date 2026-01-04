@@ -10,30 +10,47 @@ namespace src
     {
         public int Add(string s)
         {
-            //return a + b;
-            return 15;
+            string[]parts= cleanInput(s).Split('+');
+            int a=int.Parse (parts[0]);
+            int b=int.Parse (parts[1]);
+            return a + b;
         }
         public int Subtraction(string s)
         {
-            //return a + b;
-            return 5;
+            string[] parts = cleanInput(s).Split('-');
+            int a = int.Parse(parts[0]);
+            int b = int.Parse(parts[1]);
+            return a - b;
         }
         public int multiplication(string s)
         {
-            //return a + b;
-            return 50;
+
+            string[] parts = cleanInput(s).Split('*');
+            int a = int.Parse(parts[0]);
+            int b = int.Parse(parts[1]);
+            return a * b;
         }
         public int Division(string s)
         {
-            //return a + b;
-            return 5;
+
+            string[] parts = cleanInput(s).Split('/');
+            int b = int.Parse(parts[1]);
+            if (b == 0)
+            {
+                throw new DivideByZeroException();
+            }
+            int a = int.Parse(parts[0]);
+            return a / b;
         }
 
-
-
-
-
-
+        private string cleanInput(string s)
+        {
+            if(string.IsNullOrEmpty(s))
+            {
+                return "";
+            }
+            return s.Replace(" ", "");
+        }
 
     }
 
