@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 namespace src
 {
-    public class OperationFactory
+    public class OperationFactory: IOperationFactory
     {
         private readonly Dictionary<char, IOperation> _operations = new()
         {

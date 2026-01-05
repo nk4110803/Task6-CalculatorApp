@@ -9,7 +9,11 @@ namespace src
     public class Calculator
     { 
 
-        private readonly OperationFactory _operationFactory=new OperationFactory();
+        private readonly IOperationFactory _operationFactory;
+        public Calculator(IOperationFactory operationFactory)
+        {
+            _operationFactory = operationFactory;
+        }
         public int Calculate(string s)
         {
             s = s.Replace(" ", "");
